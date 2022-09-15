@@ -16,7 +16,7 @@ var corsOptions = {
   credentials:true,
   exposedHeaders:['Content-Range', 'X-Content-Range'],
   allowedHeaders:['Content-Type', 'Authorization'],
-  "preflightContinue": false,
+  "preflightContinue": true,
 
 }
 // app.use(cors({origin: 'https://postiit.netlify.app', credentials:true, exposedHeaders:['Set-Cookie', 'Date', 'ETag']}))
