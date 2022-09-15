@@ -1,3 +1,4 @@
+require("dotenv").config()
 const user = require("../models/user");
 const blogs = require("../models/postApi");
 const bcrypt = require("bcrypt");
@@ -50,14 +51,14 @@ const Signin = async (req, res) => {
           expiresIn: "24h",
         });
         const time = 24 * 60 * 60 * 1000;
-        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:"none", secure:false, signed:true });
+        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:"none", secure:false });
         return res.status(201).json({ redirect: `/app/${currentUser._id}` });
       }
       throw Error("Invalid password");
     }
     throw Error("Invalid email");
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     const errors = handleError(error);
     res.status(400).json({ errors });
   }
