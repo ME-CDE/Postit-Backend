@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 var corsOptions = {
   origin: 'https://postiit.netlify.app',
   credentials:true,
-  exposedHeaders:['Content-Range', 'X-Content-Range'],
+  exposedHeaders:['Set-Cookie', 'Date', 'ETag'],
   allowedHeaders:['Content-Type', 'Authorization'],
 }
 // app.use(cors({origin: 'https://postiit.netlify.app', credentials:true, exposedHeaders:['Set-Cookie', 'Date', 'ETag']}))
