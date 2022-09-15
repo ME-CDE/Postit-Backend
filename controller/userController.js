@@ -51,7 +51,9 @@ const Signin = async (req, res) => {
           expiresIn: "24h",
         });
         const time = 24 * 60 * 60 * 1000;
-        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:"none", secure:true });
+        res.header('Access-Control-Allow-Credentials', true);
+        res.header("Access-Control-Allow-Headers", "X-Custom-Header");
+        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:"none", secure:true, signed: true });
         return res.status(201).json({ redirect: `/app/${currentUser._id}` });
       }
       throw Error("Invalid password");
