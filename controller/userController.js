@@ -51,7 +51,7 @@ const Signin = async (req, res) => {
         });
         const time = 24 * 60 * 60 * 1000;
         res.header('Access-Control-Allow-Headers', "X-Custom-Header")
-        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:'lax', signed: true,secure:true });
+        res.cookie("jwt", token, { maxAge: time , httpOnly: true, SameSite:'none', signed: true,secure:true });
         return res.status(201).json({ redirect: `/app/${currentUser._id}` });
       }
       throw Error("Invalid password");
