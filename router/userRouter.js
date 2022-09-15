@@ -3,7 +3,7 @@ const {createUser, Signin, getSingleUser, auth, blogApi, getAllBlogs, updateBlog
 
 router.post("/signup", createUser)
 router.post("/signin", Signin)
-router.get("/app/:id",auth, getSingleUser)
+router.get("/app/:id",getSingleUser)
 router.get("/readmore/:id",getSingleUser)
 router.post("/blogs", blogApi)
 router.get("/blogs", getAllBlogs)
