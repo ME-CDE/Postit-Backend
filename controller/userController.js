@@ -98,6 +98,7 @@ const auth = async(req, res, next) => {
 };
 const blogApi = async (req, res) => {
   const { ownerId, title, content, categories, coverImage } = req.body;
+  const {id} = req.params
   // const token = req.cookies.jwt
   // if (token) {
   //   jwt.verify(token, process.env.secret, (err, decodedtoken)=>{
@@ -116,7 +117,7 @@ const blogApi = async (req, res) => {
       categories,
       coverImage,
     })
-  res.status(200).json({ newBlog });
+  res.status(200).json({ redirect: `/app/${id}/post`});
 };
 const getAllBlogs = async(req,res)=>{
   const allBlog = await blogs.find().sort({createdAt : -1})
