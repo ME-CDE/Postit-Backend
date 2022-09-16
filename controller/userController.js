@@ -70,7 +70,7 @@ const getSingleUser = async (req, res) => {
     if(!currentUser){
       return res.status(200).json({redirect:`/error`})
     }
-    currentUser = { username: currentUser.username };
+    currentUser = { username: currentUser.username, coverImage: currentUser.coverImage};
     res.status(200).json(currentUser);
   } catch (error) {
     if (error.message.includes("Cast to ObjectId failed for value")) {
