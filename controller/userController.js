@@ -109,7 +109,7 @@ const blogApi = async (req, res) => {
   // }else{
   //   return res.json({redirect:"/signin"})
   // }
-  const newBlog = await blogs
+  await blogs
     .create({
       ownerId,
       title,
